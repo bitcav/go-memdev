@@ -41,13 +41,13 @@ go build
 ```
 
 ### Run
-:lock: Requires running with elevated privileges.
+:lock: In order to access the system BIOS requires running with elevated privileges.
 
-Linux:
+* Linux:
 ```
 sudo ./main
 ```
 
-Windows:
+* Windows:
 
 You can launch the program as an administrator by right-clicking on the executable file and choosing "Run as administrator."
