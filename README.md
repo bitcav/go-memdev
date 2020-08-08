@@ -32,3 +32,22 @@ func main() {
 }
 
 ```
+
+## Running
+
+### Build
+```
+go build
+```
+
+### Run
+:lock: Requires running with elevated privileges.
+
+Linux:
+```
+sudo ./main
+```
+
+Windows:
+
+You can launch the program as an administrator by right-clicking on the executable file and choosing "Run as administrator."
