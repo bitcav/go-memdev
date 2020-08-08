@@ -75,7 +75,7 @@ func memoryType(mt int) string {
 		"LPDDR4"}[mt]
 }
 
-//Info returns an slice of Memory struct with Memory Modules Information
+//Info() returns a slice of Memory struct with Memory Modules Information.
 func Info() ([]Memory, error) {
 	var mems []Memory
 	stream, _, err := smbios.Stream()
