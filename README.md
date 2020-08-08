@@ -2,9 +2,9 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/bitcav/go-memdev)](https://goreportcard.com/report/github.com/bitcav/go-memdev)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/bitcav/go-memdev/blob/master/LICENSE)
  
-# MemDev
+# Go-MemDev
 
-Crossplatform (Windows/Linux) memory devices information library
+Crossplatform (Windows/Linux) **memory devices** information library.
 
 ## Installation
 ```
