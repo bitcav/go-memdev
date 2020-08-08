@@ -16,26 +16,51 @@ go get github.com/bitcav/go-memdev
 ```
 
 ## Usage
+Note: go version 1.13 or higher is required.
+
 
 ```go
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"log"
 
 	"github.com/bitcav/go-memdev"
 )
 
 func main() {
-	memInfo, err := memdev.Info()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(memInfo)
+	memInfo, _ := memdev.Info() //the returned value is a struct
+
+	jsonOutput, _ := json.MarshalIndent(memInfo, "", "    ")
+
+	fmt.Println(string(jsonOutput))
 }
 
 ```
+
+The output is below.
+
+```json
+[
+    {
+        "bank": "DIMM A",
+        "size": 4096,
+        "unit": "MB",
+        "type": "FBD2",
+        "formFactor": "SODIMM",
+        "manufacturer": "Samsung",
+        "serial": "A49F8D93",
+        "assetTag": "03153300",
+        "partNumber": "M471B5173DB0-YK0  ",
+        "speed": 1600,
+        "dataWidth": 64,
+        "totalWidth": 64
+    }
+]
+
+```
+
 
 ## Running
 
