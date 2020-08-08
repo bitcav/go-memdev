@@ -22,6 +22,12 @@ type Memory struct {
 	TotalWidth   int    `json:"totalWidth"`
 }
 
+//Slot availability
+type Slot struct {
+	Free int `json:"available"`
+	Used int `json:"used"`
+}
+
 func formFactorType(ff int) string {
 	return [...]string{"",
 		"Other",
@@ -61,7 +67,6 @@ func memoryType(mt int) string {
 		"SGRAM",
 		"RDRAM",
 		"DDR",
-		"DDR2",
 		"DDR2 FB-DIMM",
 		"Reserved",
 		"Reserved",
@@ -141,4 +146,37 @@ func Info() ([]Memory, error) {
 		})
 	}
 	return mems, nil
+}
+
+//Slots() returns a Slot struct with the amount of Free and Used slots of memory.
+func Slots() (Slot, error) {
+	var slots Slot
+	stream, _, err := smbios.Stream()
+	if err != nil {
+		return Slot{}, err
+	}
+
+	defer stream.Close()
+
+	d := smbios.NewDecoder(stream)
+	ss, err := d.Decode()
+	if err != nil {
+		return Slot{}, err
+	}
+
+	for _, s := range ss {
+		if s.Header.Type != 17 {
+			continue
+		}
+
+		size := int(binary.LittleEndian.Uint16(s.Formatted[8:10]))
+
+		if size == 0 {
+			slots.Free += 1
+			continue
+		} else {
+			slots.Used += 1
+		}
+	}
+	return slots, nil
 }
