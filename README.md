@@ -1,6 +1,6 @@
 [![GoDoc](https://godoc.org/github.com/narqo/go-badge?status.svg)](https://godoc.org/github.com/bitcav/go-memdev)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bitcav/go-memdev)](https://goreportcard.com/report/github.com/bitcav/go-memdev)
-![preview](https://img.shields.io/badge/platform-linux--32%20%7C%20linux--64%20%7C%20win--32%20%7C%20%20win--64-lightgrey)
+![preview](https://img.shields.io/badge/platform-linux%20%7C%20%20win-lightgrey)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/bitcav/go-memdev/blob/master/LICENSE)
 
 
