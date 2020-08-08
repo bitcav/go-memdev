@@ -8,9 +8,9 @@
 
 </div>
  
-# Go-MemDev
+# go-memdev
 
-Go-MemDev is a cross platform **Memory Devices** information library.
+A Go package that access to **Memory Devices** information.
 
 ## Installation
 ```
