@@ -10,6 +10,15 @@ go get github.com/bitcav/go-memdev
 ## Usage
 
 ```go
+package main
+
+import (
+	"fmt"
+	"log"
+
+	"github.com/bitcav/go-memdev"
+)
+
 func main() {
 	memInfo, err := memdev.Info()
 	if err != nil {
@@ -17,4 +26,5 @@ func main() {
 	}
 	fmt.Println(memInfo)
 }
+
 ```
