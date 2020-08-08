@@ -22,9 +22,9 @@ type Memory struct {
 	TotalWidth   int    `json:"totalWidth"`
 }
 
-//Slot availability
-type Slot struct {
-	Free int `json:"available"`
+//Slot availability information
+type Slots struct {
+	Free int `json:"free"`
 	Used int `json:"used"`
 }
 
