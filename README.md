@@ -8,7 +8,7 @@
  
 # Go-MemDev
 
-Crossplatform **memory devices** information library.
+Crossplatform **Memory Devices** information library.
 
 ## Installation
 ```
