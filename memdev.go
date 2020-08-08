@@ -23,7 +23,7 @@ type Memory struct {
 }
 
 //Slot availability information
-type Slots struct {
+type Slot struct {
 	Free int `json:"free"`
 	Used int `json:"used"`
 }
@@ -149,11 +149,11 @@ func Info() ([]Memory, error) {
 }
 
 //Slots() returns a Slot struct with the amount of Free and Used slots of memory.
-func Slots() (Slots, error) {
-	var slots Slots
+func Slots() (Slot, error) {
+	var slots Slot
 	stream, _, err := smbios.Stream()
 	if err != nil {
-		return Slots{}, err
+		return Slot{}, err
 	}
 
 	defer stream.Close()
@@ -161,7 +161,7 @@ func Slots() (Slots, error) {
 	d := smbios.NewDecoder(stream)
 	ss, err := d.Decode()
 	if err != nil {
-		return Slots{}, err
+		return Slot{}, err
 	}
 
 	for _, s := range ss {
