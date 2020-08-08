@@ -76,7 +76,7 @@ func memoryType(mt int) string {
 }
 
 //Info returns a []Memory struct with Memory Modules information
-func Info() ([]Memory, err) {
+func Info() ([]Memory, error) {
 	var mems []Memory
 	stream, _, err := smbios.Stream()
 	if err != nil {
