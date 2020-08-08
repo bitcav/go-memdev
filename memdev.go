@@ -140,5 +140,5 @@ func Info() ([]Memory, error) {
 			TotalWidth:   int(totalWidth),
 		})
 	}
-	return mems, error
+	return mems, nil
 }
