@@ -16,8 +16,6 @@ go get github.com/bitcav/go-memdev
 ```
 
 ## Usage
-Note: go version 1.13 or higher is required.
-
 
 ```go
 package main
