@@ -8,7 +8,7 @@
  
 # Go-MemDev
 
-Crossplatform **memory devices** information library written in Golang.
+Crossplatform **memory devices** information library.
 
 ## Installation
 ```
