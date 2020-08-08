@@ -149,11 +149,11 @@ func Info() ([]Memory, error) {
 }
 
 //Slots() returns a Slot struct with the amount of Free and Used slots of memory.
-func Slots() (Slot, error) {
-	var slots Slot
+func Slots() (Slots, error) {
+	var slots Slots
 	stream, _, err := smbios.Stream()
 	if err != nil {
-		return Slot{}, err
+		return Slots{}, err
 	}
 
 	defer stream.Close()
@@ -161,7 +161,7 @@ func Slots() (Slot, error) {
 	d := smbios.NewDecoder(stream)
 	ss, err := d.Decode()
 	if err != nil {
-		return Slot{}, err
+		return Slots{}, err
 	}
 
 	for _, s := range ss {
