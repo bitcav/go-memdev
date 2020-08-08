@@ -10,7 +10,7 @@
  
 # Go-MemDev
 
-Crossplatform **Memory Devices** information library.
+Go-MemDev is a cross platform **Memory Devices** information library.
 
 ## Installation
 ```
