@@ -50,7 +50,7 @@ func Info() ([]Memory, error) {
 		}
 
 		if len(s.Strings) <= 0 {
-			return []Memory{}, err
+			continue
 		}
 
 		size := int(binary.LittleEndian.Uint16(s.Formatted[8:10]))
