@@ -49,6 +49,10 @@ func Info() ([]Memory, error) {
 			continue
 		}
 
+		if len(s.Strings) > 0 {
+			return []Memory{}, err
+		}
+
 		size := int(binary.LittleEndian.Uint16(s.Formatted[8:10]))
 		bankLocator := s.Strings[0]
 
