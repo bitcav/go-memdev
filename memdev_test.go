@@ -7,7 +7,7 @@ func TestInfo(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Expected nil error but got %v", err)
 	}
-	if len(memInfo) < 1 {
+	if len(memInfo) == 0 {
 		t.Fatalf("Expected >0 Memory , but got %d", len(memInfo))
 	}
 }
