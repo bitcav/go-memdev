@@ -49,7 +49,7 @@ func Info() ([]Memory, error) {
 			continue
 		}
 
-		if len(s.Strings) > 0 {
+		if len(s.Strings) <= 0 {
 			return []Memory{}, err
 		}
 
