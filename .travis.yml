@@ -5,7 +5,7 @@ go:
 script:
 - go get -t -v ./...
 - go build
-- script: sudo -E env "PATH=$PATH" go test ./...
+- script: sudo -E env "PATH=$PATH" go test
 
 deploy:
   edge: true
