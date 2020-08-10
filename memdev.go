@@ -50,52 +50,51 @@ func Info() ([]Memory, error) {
 		}
 
 		if len(s.Strings) < 1 {
-			continue
+
+			size := int(binary.LittleEndian.Uint16(s.Formatted[8:10]))
+			bankLocator := s.Strings[0]
+
+			if size == 0 {
+				bankLocator = "empty"
+				continue
+			}
+
+			if size == 0x7fff {
+				size = int(binary.LittleEndian.Uint32(s.Formatted[24:28]))
+			}
+
+			manufacturer := s.Strings[1]
+			serial := s.Strings[2]
+			assetTag := s.Strings[3]
+			partNumber := s.Strings[4]
+			totalWidth := s.Formatted[4]
+			dataWidth := s.Formatted[6]
+			formFactorBytes := s.Formatted[10]
+			memTypeBytes := s.Formatted[14]
+			memType := memoryType(int(memTypeBytes))
+			formFactor := formFactorType(int(formFactorBytes))
+			memSpeed := int(binary.LittleEndian.Uint16(s.Formatted[17:19]))
+
+			unit := "KB"
+			if s.Formatted[9]&0x80 == 0 {
+				unit = "MB"
+			}
+
+			mems = append(mems, Memory{
+				Bank:         bankLocator,
+				Size:         size,
+				Unit:         unit,
+				Type:         memType,
+				FormFactor:   formFactor,
+				Manufacturer: manufacturer,
+				Serial:       serial,
+				AssetTag:     assetTag,
+				PartNumber:   partNumber,
+				Speed:        memSpeed,
+				DataWidth:    int(dataWidth),
+				TotalWidth:   int(totalWidth),
+			})
 		}
-
-		size := int(binary.LittleEndian.Uint16(s.Formatted[8:10]))
-		bankLocator := s.Strings[0]
-
-		if size == 0 {
-			bankLocator = "empty"
-			continue
-		}
-
-		if size == 0x7fff {
-			size = int(binary.LittleEndian.Uint32(s.Formatted[24:28]))
-		}
-
-		manufacturer := s.Strings[1]
-		serial := s.Strings[2]
-		assetTag := s.Strings[3]
-		partNumber := s.Strings[4]
-		totalWidth := s.Formatted[4]
-		dataWidth := s.Formatted[6]
-		formFactorBytes := s.Formatted[10]
-		memTypeBytes := s.Formatted[14]
-		memType := memoryType(int(memTypeBytes))
-		formFactor := formFactorType(int(formFactorBytes))
-		memSpeed := int(binary.LittleEndian.Uint16(s.Formatted[17:19]))
-
-		unit := "KB"
-		if s.Formatted[9]&0x80 == 0 {
-			unit = "MB"
-		}
-
-		mems = append(mems, Memory{
-			Bank:         bankLocator,
-			Size:         size,
-			Unit:         unit,
-			Type:         memType,
-			FormFactor:   formFactor,
-			Manufacturer: manufacturer,
-			Serial:       serial,
-			AssetTag:     assetTag,
-			PartNumber:   partNumber,
-			Speed:        memSpeed,
-			DataWidth:    int(dataWidth),
-			TotalWidth:   int(totalWidth),
-		})
 	}
 	return mems, nil
 }
