@@ -1,0 +1,21 @@
+language: go
+go:
+- 1.13.x
+
+script:
+- go get -t -v ./...
+- go build
+- go test
+
+deploy:
+  edge: true
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  on:
+    repo: bitcav/go-memdev
+    branches:    
+      only:      
+      - master 
+  skip_cleanup: true
+
+  draft: true
