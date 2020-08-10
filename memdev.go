@@ -28,59 +28,7 @@ type Slot struct {
 	Used int `json:"used"`
 }
 
-func formFactorType(ff int) string {
-	return [...]string{"",
-		"Other",
-		"Unknown",
-		"SIMM",
-		"SIP",
-		"Chip",
-		"DIP",
-		"ZIP",
-		"Proprietary Card",
-		"DIMM",
-		"TSOP",
-		"Row of Chips",
-		"RIMM",
-		"SODIMM",
-		"SRIMM",
-		"FBDIMM"}[ff]
-}
-
-func memoryType(mt int) string {
-	return [...]string{"",
-		"Other",
-		"Unknown",
-		"DRAM",
-		"EDRAM",
-		"VRAM",
-		"SRAM",
-		"RAM",
-		"ROM",
-		"FLASH",
-		"EEPROM",
-		"FEPROM",
-		"EPROM",
-		"CDRAM",
-		"3DRAM",
-		"SDRAM",
-		"SGRAM",
-		"RDRAM",
-		"DDR",
-		"DDR2 FB-DIMM",
-		"Reserved",
-		"Reserved",
-		"Reserved",
-		"DDR3",
-		"FBD2",
-		"DDR4",
-		"LPDDR",
-		"LPDDR2",
-		"LPDDR3",
-		"LPDDR4"}[mt]
-}
-
-//Info() returns a slice of Memory struct with Memory Modules Information.
+//Info returns a slice of Memory struct with Memory Modules Information.
 func Info() ([]Memory, error) {
 	var mems []Memory
 	stream, _, err := smbios.Stream()
@@ -148,7 +96,7 @@ func Info() ([]Memory, error) {
 	return mems, nil
 }
 
-//Slots() returns a Slot struct with the amount of Free and Used slots of memory.
+//Slots returns a Slot struct with the amount of Free and Used slots of memory.
 func Slots() (Slot, error) {
 	var slots Slot
 	stream, _, err := smbios.Stream()
@@ -172,10 +120,10 @@ func Slots() (Slot, error) {
 		size := int(binary.LittleEndian.Uint16(s.Formatted[8:10]))
 
 		if size == 0 {
-			slots.Free += 1
+			slots.Free++
 			continue
 		} else {
-			slots.Used += 1
+			slots.Used++
 		}
 	}
 	return slots, nil
