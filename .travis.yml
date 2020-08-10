@@ -1,5 +1,3 @@
-sudo: required
-dist: bionic
 language: go
 go:
 - 1.13.x
@@ -18,6 +16,5 @@ deploy:
     branches:    
       only:      
       - master 
-  skip_cleanup: true
 
   draft: true
