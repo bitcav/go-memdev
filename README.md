@@ -19,7 +19,7 @@ A Go package that access to **Memory Devices** information.
 
 ## Installation
 ```
-go get github.com/bitcav/go-memdev
+go get -u github.com/bitcav/go-memdev
 ```
 
 ## Usage
