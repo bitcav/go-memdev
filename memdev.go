@@ -125,9 +125,9 @@ func Slots() (Slot, error) {
 		if size == 0 {
 			slots.Free++
 			continue
-		} else {
-			slots.Used++
 		}
+		slots.Used++
+
 	}
 	return slots, nil
 }
