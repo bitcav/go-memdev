@@ -1,3 +1,6 @@
+//Package memdev
+//A Go package that access to Memory Devices information.
+
 package memdev
 
 import "testing"
