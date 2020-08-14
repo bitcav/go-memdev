@@ -14,3 +14,10 @@ func TestInfo(t *testing.T) {
 		t.Fatalf("Expected Memory >= 0, but got %d", len(memInfo))
 	}
 }
+
+func TestSlots(t *testing.T) {
+	_, err := Slots()
+	if err != nil {
+		t.Fatalf("Expected nil error but got %v", err)
+	}
+}

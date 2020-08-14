@@ -36,7 +36,7 @@ func Info() ([]Memory, error) {
 	var mems []Memory
 	stream, _, err := smbios.Stream()
 	if err != nil {
-		return []Memory{}, err
+		return nil, err
 	}
 
 	defer stream.Close()
@@ -44,7 +44,7 @@ func Info() ([]Memory, error) {
 	d := smbios.NewDecoder(stream)
 	ss, err := d.Decode()
 	if err != nil {
-		return []Memory{}, err
+		return nil, err
 	}
 
 	for _, s := range ss {
