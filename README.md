@@ -4,12 +4,12 @@
 
 <div align="center">
 
-![go](https://raw.githubusercontent.com/bitcav/nitr/master/images/goversion.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/bitcav/go-memdev)](https://goreportcard.com/report/github.com/bitcav/go-memdev)
-[![GoDoc](https://godoc.org/github.com/narqo/go-badge?status.svg)](https://godoc.org/github.com/bitcav/go-memdev)
-[![CI](https://github.com/bitcav/go-memdev/actions/workflows/ci.yml/badge.svg)](https://github.com/bitcav/go-memdev/actions/workflows/ci.yml)
-![preview](https://img.shields.io/badge/platform-linux%20%7C%20%20win-lightgrey)
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/bitcav/go-memdev/blob/master/LICENSE)
+[![Go version](https://img.shields.io/github/go-mod/go-version/bitcav/go-memdev?style=for-the-badge&logo=go&logoColor=white)](https://github.com/bitcav/go-memdev/blob/master/go.mod)
+[![CI](https://img.shields.io/github/actions/workflow/status/bitcav/go-memdev/ci.yml?branch=master&style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/bitcav/go-memdev/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/bitcav/go-memdev?style=for-the-badge&logo=github)](https://github.com/bitcav/go-memdev/releases)
+[![Go Reference](https://img.shields.io/badge/pkg.go.dev-reference-3FB950?style=for-the-badge&logo=go&logoColor=white&labelColor=1B2127)](https://pkg.go.dev/github.com/bitcav/go-memdev)
+[![MIT license](https://img.shields.io/badge/License-MIT-3FB950?style=for-the-badge&labelColor=1B2127)](https://github.com/bitcav/go-memdev/blob/master/LICENSE)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-E8EDF2?style=for-the-badge&labelColor=1B2127)
 
 </div>
  
