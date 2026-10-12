@@ -7,7 +7,7 @@
 ![go](https://raw.githubusercontent.com/bitcav/nitr/master/images/goversion.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/bitcav/go-memdev)](https://goreportcard.com/report/github.com/bitcav/go-memdev)
 [![GoDoc](https://godoc.org/github.com/narqo/go-badge?status.svg)](https://godoc.org/github.com/bitcav/go-memdev)
-[![Build Status](https://travis-ci.org/bitcav/go-memdev.svg?branch=master)](https://travis-ci.org/bitcav/go-memdev)
+[![CI](https://github.com/bitcav/go-memdev/actions/workflows/ci.yml/badge.svg)](https://github.com/bitcav/go-memdev/actions/workflows/ci.yml)
 ![preview](https://img.shields.io/badge/platform-linux%20%7C%20%20win-lightgrey)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/bitcav/go-memdev/blob/master/LICENSE)
 
@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	memInfo, _ := memdev.Info() //the returned value is a struct
+	memInfo, _ := memdev.Info() //the returned value is a slice of Memory
 
 	jsonOutput, _ := json.MarshalIndent(memInfo, "", "    ")
 
@@ -52,7 +52,7 @@ The output is below.
         "bank": "DIMM A",
         "size": 4096,
         "unit": "MB",
-        "type": "FBD2",
+        "type": "DDR3",
         "formFactor": "SODIMM",
         "manufacturer": "Samsung",
         "serial": "A49F8D93",
